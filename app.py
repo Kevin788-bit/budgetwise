@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from models import init_db, add_transaction, get_balance, get_transactions
+from flask import Flask
 
 
 app = Flask(__name__)
@@ -26,6 +27,11 @@ def balance():
 @app.route('/transactions', methods=['GET'])
 def transactions():
     return jsonify(get_transactions())
+
+
+@app.route('/')
+def home():
+    return "Bienvenue sur BudgetWise (Render déployé) !"
 
 
 if __name__ == '__main__':
